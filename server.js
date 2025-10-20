@@ -1,6 +1,5 @@
-// server.js (na raiz)
-const express = require('express');
-const comidaRoutes = require('./src/routes/comidaRoutes');
+import express from 'express';
+import bruxoRoutes from './src/routes/comidaRoutes.js';
 
 const app = express();
 const PORT = 3001;
@@ -9,18 +8,18 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
   res.json({ 
-    message: '🏰 API de comida - MVC Edition',
+    message: '🏰 API de Hogwarts - MVC Edition (ES Modules)',
     endpoints: {
-      listar: 'GET /comida',
-      buscar: 'GET /comida/:id',
-      criar: 'POST /comida',
-      atualizar: 'PUT /comida/:id',
-      deletar: 'DELETE /comida/:id'
+      listar: 'GET /bruxos',
+      buscar: 'GET /bruxos/:id',
+      criar: 'POST /bruxos',
+      atualizar: 'PUT /bruxos/:id',
+      deletar: 'DELETE /bruxos/:id'
     }
   });
 });
 
-app.use('/comida', bruxoRoutes);
+app.use('/bruxos', bruxoRoutes);
 
 app.listen(PORT, () => {
   console.log(`🪄 API em http://localhost:${PORT}`);
